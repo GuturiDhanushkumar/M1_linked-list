@@ -1,10 +1,10 @@
 /*
 This code has been compiled in Code::Blocks 16.01 IDE on Windows 10
-Author:- Mishal Shah
+Author:- Guturi Dhanush Kumar
 */
 #include<stdio.h>
 #include<string.h>
-char x,o;
+char o,x;
 char a[9]={'1','2','3','4','5','6','7','8','9'};
 char u1[50],u2[50];
 void board();
@@ -28,16 +28,16 @@ int main()
     {
     read:
         p=fopen("score.txt","a+");
-    printf("\nEnter name of player1: ");
+    printf("\nEnter name of person1: ");
     scanf("%s",u1);
     fprintf(p,"\n%s",u1);
-    printf("Enter name of player2: ");
+    printf("Enter name of person2: ");
     scanf("%s",u2);
     fprintf(p,"\t%s",u2);
     fclose(p);
     if(!strcmp(u1,u2))
     {
-        printf("Enter names of different players!\n\n");
+        printf("Enter names of different persons!\n\n");
         goto read;
     }
     else
@@ -52,9 +52,9 @@ int main()
 
         player=((player%2)?1:2);
         if(player==1)
-        printf("%s Type any digit from 1-9 to fill your response:- ",u1);
+        printf("%s Type any number from 1-9 to fill your response:- ",u1);
         else
-            printf("%s Type any digit from 1-9 to fill your response:- ",u2);
+            printf("%s Type any number from 1-9 to fill your response:- ",u2);
         scanf("%d",&choice);
         symbol=((player==1)?x:o);
         if(choice==1 && a[0]=='1')
@@ -76,7 +76,7 @@ int main()
         else if(choice==9 && a[8]=='9')
             a[8]=symbol;
         else
-            {printf("Wrong Selection\n");player--;}
+            {printf("ho shit...Wrong Selection\n");player--;}
 
         score=checkforwin();
         player++;
@@ -114,7 +114,7 @@ int main()
             printf("%c",c);
         }
         fclose(p);
-        printf("\n\nPress 1 to start the game:- ");
+        printf("\n\nPress 1 to proceed the game:- ");
         scanf("%d",&cho);
         if(cho==1)
             goto read;
@@ -123,7 +123,7 @@ int main()
     }
     else
     {
-        printf("\n\nShould have typed 1 to play the game!\nHope to see you back soon!\n\n");
+        printf("\n\nShould have typed 1 to play the game!\nHope to see you back soon..bye!\n\n");
         getch();
     }
 }
@@ -174,9 +174,9 @@ void rules()
 {
     char link;
     printf("\tTic-Tac-Toe\n\n");
-    printf("Welcome to the most played 2D game and a sort of fun using X and O\n\n");
+    printf("Welcome to the most played 2D game and a sort of fun using O and X\n\n");
     printf("Rules:-\n");
-    printf("\n1:Each player will be entering the number to put respective X or O in the desired position");
+    printf("\n1:Each player will be entering the number to put respective O or X in the desired position");
     printf("\n2:Player who gets a combination of 3 same characters either diagonal or horizontally or \n  vertically will be declared as the winner");
     printf("\n\nEnjoy the game! Be a Winner!\n\n");
     printf("For more clarifications press Y else type any other character:- ");
@@ -197,13 +197,13 @@ int decision()
         {
             if(dec=='X' || dec=='x')
             {
-                x='X';
-                o='0';
+                o='X';
+                x='0';
             }
             else if(dec=='0')
             {
-                x='0';
-                o='X';
+                o='0';
+                x='X';
             }
             else
             {
